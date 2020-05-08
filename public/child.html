@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+  <title>Child</title>
+</head>
+<body>
+  <script>
+    window.addEventListener('message', event => {
+      if (event.data === 'test') {
+        const res = {
+          isParent: window.location === window.parent.location,
+          referrer: document.referrer,
+          ancestorOrigin: document.location.ancestorOrigins && document.location.ancestorOrigins.length ? document.location.ancestorOrigins[0] : '',
+          queryParam: new URLSearchParams(window.location.search).get('url')
+        }
+
+        window.parent.postMessage(res, event.origin)
+      }
+    }, false)
+  </script>
+</body>
+</html>
