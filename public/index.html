@@ -34,8 +34,8 @@
     iframe.setAttribute('scrolling', 'no')
 
     window.addEventListener('message', async event => {
-      if (event.origin === childUrl) {
-      output.innerHTML = `<div>iframe response</div><pre>${JSON.stringify(event.data, null, 2)}</pre>`
+      if (event.origin === childUrl && event.data) {
+        output.innerHTML = `<div>iframe response</div><pre>${JSON.stringify(event.data, null, 2)}</pre>`
       }
     })
 
