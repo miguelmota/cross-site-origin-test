@@ -1,6 +1,6 @@
 # cross-site origin test
 
-> Shows different ways to get cross-origin parent hostname from iframe.
+> Shows different ways to get cross-site origin parent window hostname from iframe.
 
 ## Demo
 
